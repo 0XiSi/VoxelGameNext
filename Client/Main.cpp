@@ -3,6 +3,9 @@
 #include <Systems/WorldSystem.hpp>
 #include <Systems/WorldSerializer.hpp>
 #include <Platform/Window.hpp>
+#include <Render/Camera.hpp>
+#include "Render/RenderSystem.hpp"
+
 
 int main() {
     std::cout << "VoxelGame Client starting...\n";
@@ -15,21 +18,19 @@ int main() {
     entt::registry registry;
     WorldSystem world("save");
 
-    // 3. Dummy camera
-    struct Camera { glm::vec3 position{ 0.f, 80.f, 0.f }; } camera;
+    Camera camera = Camera(glm::vec3(1.0, 1.0, 1.0), glm::vec3(0.0, 1.0, 0.0), 0, 0, 5, 5);
 
     // 4. Main loop
+    RenderSystem rs;
     while (!window.shouldClose()) {
         window.pollEvents();
-
-        // TODO plug real input here
         if (window.isKeyPressed(Engine::Key::F5)) {
             WorldSerializer::save(world.chunks(), "save");
             std::cout << "World saved!\n";
         }
 
-        // TODO plug real renderer here
-        world.update(registry, camera.position);
+        world.update(registry, camera.getCameraPosition());
+
 
         window.swapBuffers();
     }

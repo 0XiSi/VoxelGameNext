@@ -4,6 +4,7 @@ add_library(Engine STATIC
   Render/Mesh.cpp Render/Mesh.hpp
   Render/Shader.cpp Render/Shader.hpp
   Platform/Window.cpp Platform/Window.hpp
+  Render/Camera.cpp Render/Camera.hpp
   # …add others as you move them
 )
 target_link_libraries(Engine PRIVATE glm)
