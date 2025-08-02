@@ -1,0 +1,29 @@
+# Build outputs
+build/
+out/
+*.exe
+*.pdb
+*.ilk
+*.lib
+*.obj
+*.log
+
+# vcpkg
+vcpkg/
+vcpkg_installed/
+
+# Third-party source (sub-modules or downloaded)
+ThirdParty/glad/
+ThirdParty/glfw/
+ThirdParty/glm/
+ThirdParty/stb/
+ThirdParty/entt.hpp
+
+# IDE
+.vs/
+*.user
+*.vcxproj.user
+CMakeSettings.json
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
